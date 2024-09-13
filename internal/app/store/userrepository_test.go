@@ -18,7 +18,7 @@ func Test_Delete(t *testing.T) {
 
 	s := store.New(db)
 
-	email1 := "Ilya@gmail.com"
+	email1 := "Alex@gmail.com"
 	email2 := "Pavel@gmail.com"
 
 	err = s.User().Delete(email1)

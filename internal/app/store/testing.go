@@ -5,7 +5,7 @@ import(
 )
 
 func TestDB() (*sql.DB, error){
-	db, err := sql.Open("mysql", "root:Sofa=22082014@tcp(0.0.0.0:3306)/testDatabase")
+	db, err := sql.Open("mysql", "username:password@tcp(0.0.0.0:3306)/nameOfDatabase")
 	if err != nil{
 		return nil, err
 	}

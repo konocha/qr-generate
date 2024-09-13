@@ -1,13 +1,13 @@
 package apiserver
 
 type Config struct{
-	BindAddr string
+	BindAddress string
 	DataBaseURL string
 }
 
-func NewConfig() *Config{
+func NewConfig(c Config) *Config{
 	return &Config{
-		BindAddr: ":8081",
-		DataBaseURL: "root:Sofa=22082014@tcp(0.0.0.0:3306)/testDatabase",
+		BindAddress: c.BindAddress,
+		DataBaseURL: c.DataBaseURL,
 	}
 }

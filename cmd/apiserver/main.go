@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/konocha/qr-generate/internal/app/apiserver"
+	"github.com/BurntSushi/toml"
 )
 
 var(
@@ -15,12 +16,19 @@ func init(){
 	flag.StringVar(&configPath, "config-path", "configs/qrgenerate.toml", "path to config file")
 }
 
+
+
 func main() {
+	var config apiserver.Config
 	flag.Parse()
 
-	cfg := apiserver.NewConfig()
+	_, err := toml.DecodeFile(configPath, &config)
+	if err != nil{
+		log.Fatal()
+	}
+	cfg := apiserver.NewConfig(config)
 
-	err := apiserver.Start(cfg)
+	err = apiserver.Start(cfg)
 	if err != nil{
 		log.Fatal(err)
 	}

@@ -19,7 +19,7 @@ func Start(config *Config) error{
 
 	s := newServer(str)
 
-	return http.ListenAndServe(config.BindAddr, s.router)
+	return http.ListenAndServe(config.BindAddress, s.router)
 }
 
 func newDB(config *Config) (*sql.DB, error) {

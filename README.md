@@ -20,10 +20,14 @@ git clone github.com/konocha/qr-generate
 ``` bash
 go mod download
 ```
-### 3. Установите конфигурации
+### 3. Запустите миграции 
+``` bash
+migrate -path migrations -database "mysql://user:password@host:port/database_name" up
+```
+### 4. Установите конфигурации
 * Перейдите в файл ./configs/qrgenerate.toml  
 * Установите порт и URL базы данных mysql
-### 4. Cоберите и запустите проект
+### 5. Cоберите и запустите проект
 Перейдите в директорию проекта  
 * Сборка
 ``` bash
@@ -33,4 +37,3 @@ go build -v ./cmd/apiserver
 ``` bash
 ./apiserver
 ```
-## Документация
